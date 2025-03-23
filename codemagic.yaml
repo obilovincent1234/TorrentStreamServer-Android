@@ -1,0 +1,12 @@
+workflows:
+  build-aar:
+    name: Build Android Library (AAR)
+    environment:
+      android: true
+    scripts:
+      - name: Assemble release AAR
+        script: |
+          cd library
+          ./gradlew assembleRelease
+    artifacts:
+      - library/build/outputs/aar/*.aar
