@@ -3,11 +3,11 @@ workflows:
     name: Build Android Library (AAR)
     environment:
       vars:
-        GRADLE_WRAPPER: "./gradlew"
+        BUILD_DIR: "library"
     scripts:
       - name: Assemble release AAR
         script: |
-          cd library
-          $GRADLE_WRAPPER assembleRelease
+          chmod +x ./gradlew
+          ./gradlew :$BUILD_DIR:assembleRelease
     artifacts:
       - library/build/outputs/aar/*.aar
